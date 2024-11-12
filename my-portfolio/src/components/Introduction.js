@@ -1,14 +1,16 @@
 import React from 'react';
 import profileImage from './image.png';
-import { FaFootballBall, FaBook, FaCode, FaSearch, FaVolleyballBall } from 'react-icons/fa';
+import { useMediaQuery } from 'react-responsive';
 
 const AboutMe = () => {
+  const isMobile = useMediaQuery({ query: '(max-width: 768px)' });
+
   return (
-    <section className="flex flex-col md:flex-row items-start justify-center p-8 bg-gradient-to-r from-black via-gray-900 to-purple-900 text-white" id="about">
-      <div className="w-full md:w-1/3 mb-8 md:mb-0 float-left md:float-none">
+    <section className={`flex flex-col ${isMobile ? 'items-center' : 'md:flex-row items-start'} justify-center p-8 bg-gradient-to-r from-black via-gray-900 to-purple-900 text-white`} id="about">
+      <div className={`w-full ${isMobile ? 'mb-8' : 'md:w-1/3 mb-8 md:mb-0 float-left md:float-none'}`}>
         <img src={profileImage} alt="Profile" className="rounded-lg w-full" />
       </div>
-      <div className="w-full md:w-2/3 md:pl-8">
+      <div className={`w-full ${isMobile ? '' : 'md:w-2/3 md:pl-8'}`}>
         <h2 className="text-4xl font-bold mb-4">MY BIOGRAPHY</h2>
         <div className="bg-blue-500 h-1 w-20 mb-4"></div>
         <p className="mb-4">
@@ -23,7 +25,6 @@ const AboutMe = () => {
         <p className="mb-6">
           I am passionate about continuous learning and enjoy engaging in activities that challenge me both mentally and physically.
         </p>
-
       </div>
     </section>
   );

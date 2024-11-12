@@ -7,9 +7,12 @@ const AboutMe = () => {
 
   return (
     <section className={`flex flex-col ${isMobile ? 'items-center' : 'md:flex-row items-start'} justify-center p-8 bg-gradient-to-r from-black via-gray-900 to-purple-900 text-white`} id="about">
-      <div className={`w-full ${isMobile ? 'mb-8' : 'md:w-1/3 mb-8 md:mb-0 float-left md:float-none'}`}>
-        <img src={profileImage} alt="Profile" className="rounded-lg w-full" />
-      </div>
+      {/* Conditionally render the image based on screen size */}
+      {!isMobile && (
+        <div className={`w-full md:w-1/3 mb-8 md:mb-0`}>
+          <img src={profileImage} alt="Profile" className="rounded-lg w-full" />
+        </div>
+      )}
       <div className={`w-full ${isMobile ? '' : 'md:w-2/3 md:pl-8'}`}>
         <h2 className="text-4xl font-bold mb-4">MY BIOGRAPHY</h2>
         <div className="bg-blue-500 h-1 w-20 mb-4"></div>
